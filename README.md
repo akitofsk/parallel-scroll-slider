@@ -1,5 +1,5 @@
 # parallel-scroll-slider
-This package is provided a slider scrolled parallel direction when browser is scrolled vertically.
+This package provides a slider scrolled parallel direction when browser is scrolled vertically.
 
 ## Install
 
