@@ -24,14 +24,17 @@ const ParallelScrollSlider: Slide = function (props) {
   const slideRef = useRef<HTMLUListElement>(null);
   const parentRef = useRef<HTMLDivElement>(null);
 
-  const slideStyle:CSSProperties = {
+  const slideStyle: CSSProperties = {
     height: '100%',
     listStyle: 'none',
     position: 'absolute',
+    top: '0',
+    bottom: '0',
+    margin: "0",
     display: 'flex',
     columnGap: `${props.slideGap}px`,
-    paddingLeft: "0",
-    boxSizing: "border-box",
+    paddingLeft: '0',
+    boxSizing: 'border-box',
     paddingTop: `${
       typeof props.slidePaddingY === 'object'
         ? defineNumber(props.slidePaddingY.top) + 'px'
@@ -81,14 +84,14 @@ const ParallelScrollSlider: Slide = function (props) {
               (listAmount - 1)) /
               listAmount +
             slideGap * (listAmount - 1);
-            console.log([listAmount, defaultPos])
+          console.log([listAmount, defaultPos]);
           switch (stopPos) {
             case 'start':
               return defaultPos;
             case 'center':
               return (
                 defaultPos -
-                (1 - defineNumber(slideWidth)) * scrollSection.clientWidth / 2
+                ((1 - defineNumber(slideWidth)) * scrollSection.clientWidth) / 2
               );
             case 'end':
               return (
@@ -97,7 +100,7 @@ const ParallelScrollSlider: Slide = function (props) {
               );
           }
         };
-        console.log([slide.clientHeight, slideStop()])
+        console.log([slide.clientHeight, slideStop()]);
         scrollSection.style.height = slide.clientHeight + slideStop() + 'px';
 
         const position =
@@ -139,7 +142,7 @@ const ParallelScrollSlider: Slide = function (props) {
   });
 
   return (
-    <div ref={parentRef} style={{ position: 'relative'}}>
+    <div ref={parentRef} style={{ position: 'relative' }}>
       <div
         style={{
           width: '100%',
@@ -147,11 +150,8 @@ const ParallelScrollSlider: Slide = function (props) {
           top: `${defineNumber(props.fromTop)}px`,
         }}
       >
-        <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-          <ul
-            ref={slideRef}
-            style={slideStyle}
-          >
+        <div style={{ width: '100%', height: '100%', position: 'relative', overflowX: "clip" }}>
+          <ul ref={slideRef} style={slideStyle}>
             {props.list}
           </ul>
         </div>
