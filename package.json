@@ -1,6 +1,6 @@
 {
   "name": "parallel-scroll-slider",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A slider scrolled parallel direction when browser is scrolled vertically.",
   "type": "module",
   "module": "lib/index.js",
