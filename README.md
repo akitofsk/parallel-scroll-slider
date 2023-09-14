@@ -32,7 +32,7 @@ const Sample = () => {
 |-------------------------|---------------    |-------------------------------------------------------------|
 | `fromTop`               | `number / string` | Slider's position from top                                      |
 | `slideGap`              | `number / string` | Gap each lists                                         |
-| `slidePaddingY`         | `number / string / {top: number / string, bottom: number / string}` | `0`: stopped, `1`: scrolling up, `-1`: Padding of top and bottom |
+| `slidePaddingY`         | `number / string / {top: number / string, bottom: number / string}` | Padding of top and bottom |
 | `slideWidth`            | `string`          | Each lists' width                                             |
 | `list`                  | `JSX.Element[]`          | Slider's contents                                            |
 | `stopPos`               | `start / center / end`          | Stopped position                                         |
