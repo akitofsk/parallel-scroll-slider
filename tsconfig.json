@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "CommonJS",
+    "jsx": "react-jsx",
+    "declaration": true,
+    "outDir": "lib",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["src/**/*.tsx"],
+  "exclude": ["node_modules"]
+}
