@@ -1,6 +1,6 @@
 {
   "name": "parallel-scroll-slider",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A slider scrolled parallel direction when browser is scrolled vertically.",
   "type": "module",
   "module": "lib/index.js",
@@ -8,7 +8,9 @@
   "engines": {
     "node": ">=12"
   },
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
@@ -28,6 +30,7 @@
   },
   "homepage": "https://github.com/akitofsk/parallel-scroll-slider#readme",
   "devDependencies": {
+    "@types/node": "^20.6.0",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "react": "^18.2.0",
