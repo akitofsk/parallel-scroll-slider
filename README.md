@@ -43,8 +43,13 @@ const Sample = () => {
 
 `slideGap`: Decided the gap of each slide contents. `slideGap=0` equals `column-gap: 0`, and `slideGap="10%"` equals `column-gap: "10%"`.
 
-`slidePaddingY`: Decided the padding of top and bottom. if you want one's size is different from the other, you can write like `slideWidth={{top:10, bottom:20}}`.
+`slidePaddingY`: Decided the padding of top and bottom. if you want one's size is different from the other, you can write like `slidePaddingY={{top:10, bottom:20}}`.
 
-`list`: The contents of slide. You can use only JSX.Element.
+`slideWidth`: Decided the size of each lists. the size is relatively decided component's width. you can define- the percentage like `slideWidth={"50%"}`.
 
-`stopPos`: Decided the position when the slide is stopped. "start" : left edge of component. "center" : center position. "end" : right edge of component. 
+`list`: The contents of slide. You can use only JSX.Element[].
+
+`stopPos`: Decided the position when the slide is stopped.
+"start" : left edge of component.
+"center" : center position.
+"end" : right edge of component. 
