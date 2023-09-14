@@ -47,7 +47,7 @@ const Sample = () => {
 
 `slideWidth`: Decided the size of each lists. the size is relatively decided component's width. you can define- the percentage like `slideWidth={"50%"}`.
 
-`list`: The contents of slide. You can use only JSX.Element[].
+`list`: The contents of slide. You can only use JSX.Element[].
 
 `stopPos`: Decided the position when the slide is stopped.
 "start" : left edge of component.
