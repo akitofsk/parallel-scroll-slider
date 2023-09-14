@@ -40,7 +40,11 @@ const Sample = () => {
 ## Props' Description
 
 `fromTop`: Decided the position of component from top. `fromTop=0` equals `top: 0`, and `fromTop="10%"` equals `top: "10%"`.
+
 `slideGap`: Decided the gap of each slide contents. `slideGap=0` equals `column-gap: 0`, and `slideGap="10%"` equals `column-gap: "10%"`.
+
 `slidePaddingY`: Decided the padding of top and bottom. if you want one's size is different from the other, you can write like `slideWidth={{top:10, bottom:20}}`.
+
 `list`: The contents of slide. You can use only JSX.Element.
+
 `stopPos`: Decided the position when the slide is stopped. "start" : left edge of component. "center" : center position. "end" : right edge of component. 
