@@ -26,9 +26,12 @@ const ParallelScrollSlider: Slide = function (props) {
 
   const slideStyle:CSSProperties = {
     height: '100%',
+    listStyle: 'none',
     position: 'absolute',
     display: 'flex',
     columnGap: `${props.slideGap}px`,
+    paddingLeft: "0",
+    boxSizing: "border-box",
     paddingTop: `${
       typeof props.slidePaddingY === 'object'
         ? defineNumber(props.slidePaddingY.top) + 'px'
@@ -136,7 +139,7 @@ const ParallelScrollSlider: Slide = function (props) {
   });
 
   return (
-    <div ref={parentRef} style={{ position: 'relative',  }}>
+    <div ref={parentRef} style={{ position: 'relative'}}>
       <div
         style={{
           width: '100%',
