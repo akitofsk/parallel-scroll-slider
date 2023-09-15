@@ -36,7 +36,7 @@ const Sample = () => {
 | `slideWidth`            | `string`          | required | Each lists' width                                             |
 | `list`                  | `JSX.Element[]`          | required | Slider's contents                                            |
 | `stopPos`               | `start / center / end`          | required | Stopped position                                         |
-| `fullWidth`               | `boolean`          | optional | Choose the display range of slider.                                         |
+| `fullWidth`               | `boolean`          | optional |  Display range of slider.                                         |
 
 ## Props' Description
 
