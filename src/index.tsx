@@ -2,9 +2,9 @@ import React from 'react';
 import { useRef, useEffect, CSSProperties } from 'react';
 
 interface SlideProps {
-  fromTop: number | string;
+  fromTop?: number | string;
   slideGap: number;
-  slidePaddingY:
+  slidePaddingY?:
     | number
     | string
     | {
@@ -13,14 +13,23 @@ interface SlideProps {
       };
   slideWidth: string;
   list: JSX.Element[];
-  stopPos: 'start' | 'center' | 'end';
+  stopPos?: 'start' | 'center' | 'end';
+  fullWidth?: boolean;
 }
 
 interface Slide {
   (props: SlideProps): JSX.Element;
 }
 
-const ParallelScrollSlider: Slide = function (props) {
+const ParallelScrollSlider: Slide = function ({
+  fromTop = 0,
+  slideGap,
+  slidePaddingY = 0,
+  slideWidth,
+  list,
+  stopPos = 'start',
+  fullWidth = true,
+}) {
   const slideRef = useRef<HTMLUListElement>(null);
   const parentRef = useRef<HTMLDivElement>(null);
 
@@ -32,18 +41,18 @@ const ParallelScrollSlider: Slide = function (props) {
     bottom: '0',
     margin: '0',
     display: 'flex',
-    columnGap: `${props.slideGap}px`,
+    columnGap: `${slideGap}px`,
     paddingLeft: '0',
     boxSizing: 'border-box',
     paddingTop: `${
-      typeof props.slidePaddingY === 'object'
-        ? defineNumber(props.slidePaddingY.top) + 'px'
-        : defineNumber(props.slidePaddingY) + 'px'
+      typeof slidePaddingY === 'object'
+        ? defineNumber(slidePaddingY.top) + 'px'
+        : defineNumber(slidePaddingY) + 'px'
     }`,
     paddingBottom: `${
-      typeof props.slidePaddingY === 'object'
-        ? defineNumber(props.slidePaddingY.bottom) + 'px'
-        : defineNumber(props.slidePaddingY) + 'px'
+      typeof slidePaddingY === 'object'
+        ? defineNumber(slidePaddingY.bottom) + 'px'
+        : defineNumber(slidePaddingY) + 'px'
     }`,
   };
 
@@ -64,6 +73,7 @@ const ParallelScrollSlider: Slide = function (props) {
       stopPos: 'start' | 'center' | 'end'
     ) {
       if (slide && scrollSection && slideWrap && slideItem) {
+        fullWidth && (document.body.style.overflowX = 'clip');
         const top =
           typeof fromTop === 'number'
             ? fromTop
@@ -123,12 +133,7 @@ const ParallelScrollSlider: Slide = function (props) {
     }
 
     const callFunc = () =>
-      slidePosition(
-        props.fromTop,
-        props.slideGap,
-        props.slideWidth,
-        props.stopPos
-      );
+      slidePosition(fromTop, slideGap, slideWidth, stopPos);
 
     callFunc();
 
@@ -146,14 +151,15 @@ const ParallelScrollSlider: Slide = function (props) {
       ref={parentRef}
       style={{
         position: 'relative',
-        paddingTop: `${defineNumber(props.fromTop)}px`,
+        paddingTop: `${defineNumber(fromTop)}px`,
+        overflowX: `${!fullWidth ? 'clip' : 'unset'}`,
       }}
     >
       <div
         style={{
           width: '100%',
           position: 'sticky',
-          top: `${defineNumber(props.fromTop)}px`,
+          top: `${defineNumber(fromTop)}px`,
         }}
       >
         <div
@@ -161,11 +167,10 @@ const ParallelScrollSlider: Slide = function (props) {
             width: '100%',
             height: '100%',
             position: 'relative',
-            overflowX: 'clip',
           }}
         >
           <ul ref={slideRef} style={slideStyle}>
-            {props.list}
+            {list}
           </ul>
         </div>
       </div>
