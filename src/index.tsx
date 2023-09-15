@@ -94,7 +94,6 @@ const ParallelScrollSlider: Slide = function ({
               (listAmount - 1)) /
               listAmount +
             slideGap * (listAmount - 1);
-          console.log([listAmount, defaultPos]);
           switch (stopPos) {
             case 'start':
               return defaultPos;
@@ -110,11 +109,9 @@ const ParallelScrollSlider: Slide = function ({
               );
           }
         };
-        console.log([slide.clientHeight, slideStop()]);
-        scrollSection.style.height = slide.clientHeight + slideStop() + 'px';
-
+        scrollSection.style.height = slide.clientHeight + slideStop() + top + 'px';
         const position =
-          scrollSection.getBoundingClientRect().top + window.scrollY;
+          scrollSection.getBoundingClientRect().top + window.scrollY ;
 
         if (scrollSection.getBoundingClientRect().top <= 0) {
           if (
@@ -151,6 +148,7 @@ const ParallelScrollSlider: Slide = function ({
       ref={parentRef}
       style={{
         position: 'relative',
+        boxSizing: 'border-box',
         paddingTop: `${defineNumber(fromTop)}px`,
         overflowX: `${!fullWidth ? 'clip' : 'unset'}`,
       }}
