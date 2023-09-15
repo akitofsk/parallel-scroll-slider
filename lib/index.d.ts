@@ -1,14 +1,15 @@
 /// <reference types="react" />
 interface SlideProps {
-    fromTop: number | string;
+    fromTop?: number | string;
     slideGap: number;
-    slidePaddingY: number | string | {
+    slidePaddingY?: number | string | {
         top: number | string;
         bottom: number | string;
     };
     slideWidth: string;
     list: JSX.Element[];
-    stopPos: 'start' | 'center' | 'end';
+    stopPos?: 'start' | 'center' | 'end';
+    fullWidth?: boolean;
 }
 interface Slide {
     (props: SlideProps): JSX.Element;
