@@ -30,13 +30,13 @@ const Sample = () => {
 
 | Property                | Type              | Required| Description                                                 |
 |-------------------------|---------------    |- |-------------------------------------------------------------|
-| `fromTop`               | `number / string` | option | Slider's position from top                                      |
+| `fromTop`               | `number / string` | optional | Slider's position from top                                      |
 | `slideGap`              | `number / string` | required | Gap each lists                                         |
-| `slidePaddingY`         | `number / string / {top: number / string, bottom: number / string}` | option | Padding of top and bottom |
+| `slidePaddingY`         | `number / string / {top: number / string, bottom: number / string}` | optional | Padding of top and bottom |
 | `slideWidth`            | `string`          | required | Each lists' width                                             |
 | `list`                  | `JSX.Element[]`          | required | Slider's contents                                            |
 | `stopPos`               | `start / center / end`          | required | Stopped position                                         |
-| `fullWidth`               | `boolean`          | option | Choose the display range of slider.                                         |
+| `fullWidth`               | `boolean`          | optional | Choose the display range of slider.                                         |
 
 ## Props' Description
 
