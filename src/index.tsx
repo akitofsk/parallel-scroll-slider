@@ -30,7 +30,7 @@ const ParallelScrollSlider: Slide = function (props) {
     position: 'absolute',
     top: '0',
     bottom: '0',
-    margin: "0",
+    margin: '0',
     display: 'flex',
     columnGap: `${props.slideGap}px`,
     paddingLeft: '0',
@@ -104,9 +104,9 @@ const ParallelScrollSlider: Slide = function (props) {
         scrollSection.style.height = slide.clientHeight + slideStop() + 'px';
 
         const position =
-          scrollSection.getBoundingClientRect().top + window.scrollY - top;
+          scrollSection.getBoundingClientRect().top + window.scrollY;
 
-        if (scrollSection.getBoundingClientRect().top <= top) {
+        if (scrollSection.getBoundingClientRect().top <= 0) {
           if (
             window.innerHeight < scrollSection.getBoundingClientRect().bottom
           ) {
@@ -142,7 +142,13 @@ const ParallelScrollSlider: Slide = function (props) {
   });
 
   return (
-    <div ref={parentRef} style={{ position: 'relative' }}>
+    <div
+      ref={parentRef}
+      style={{
+        position: 'relative',
+        paddingTop: `${defineNumber(props.fromTop)}px`,
+      }}
+    >
       <div
         style={{
           width: '100%',
@@ -150,7 +156,14 @@ const ParallelScrollSlider: Slide = function (props) {
           top: `${defineNumber(props.fromTop)}px`,
         }}
       >
-        <div style={{ width: '100%', height: '100%', position: 'relative', overflowX: "clip" }}>
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            position: 'relative',
+            overflowX: 'clip',
+          }}
+        >
           <ul ref={slideRef} style={slideStyle}>
             {props.list}
           </ul>
